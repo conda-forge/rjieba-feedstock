@@ -1,5 +1,5 @@
 {% set name = "rjieba" %}
-{% set version = "0.1.13" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3ff7396e645c6ebf8c780ac2d585a6c92ddc5e135be83b0da0da9f995ae62f46
+  sha256: af96d4a14f24b68e053024ab993ec008c868d85598f8af928f2424ff4d86bc44
 
 build:
-  number: 2
+  number: 0
   script:
     - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation  
+    - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 
 requirements:
@@ -36,7 +36,7 @@ test:
 about:
   home: https://github.com/messense/rjieba-py
   license: MIT
-  license_file: 
+  license_file:
     - THIRDPARTY.yml
     - LICENSE
   summary: jieba-rs Python binding
